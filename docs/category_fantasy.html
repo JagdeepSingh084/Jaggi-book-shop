@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy | Books to Scrape Clone</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="/">Jaggi Books</a></h1>
+                    <h2>Your Gateway to Literary Adventures</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search for books...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="cart-icon">
+                        <a href="/cart"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu categories">
+                            
+    
+    <li >
+        <a href="category_travel.html">Travel</a>
+    </li>
+    
+    <li >
+        <a href="category_mystery.html">Mystery</a>
+    </li>
+    
+    <li >
+        <a href="category_historical_fiction.html">Historical Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_sequential_art.html">Sequential Art</a>
+    </li>
+    
+    <li >
+        <a href="category_classics.html">Classics</a>
+    </li>
+    
+    <li >
+        <a href="category_philosophy.html">Philosophy</a>
+    </li>
+    
+    <li >
+        <a href="category_romance.html">Romance</a>
+    </li>
+    
+    <li >
+        <a href="category_womens_fiction.html">Womens Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_fiction.html">Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_childrens.html">Childrens</a>
+    </li>
+    
+    <li >
+        <a href="category_religion.html">Religion</a>
+    </li>
+    
+    <li >
+        <a href="category_nonfiction.html">Nonfiction</a>
+    </li>
+    
+    <li >
+        <a href="category_music.html">Music</a>
+    </li>
+    
+    <li >
+        <a href="category_default.html">Default</a>
+    </li>
+    
+    <li >
+        <a href="category_science_fiction.html">Science Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_sports_and_games.html">Sports and Games</a>
+    </li>
+    
+    <li >
+        <a href="category_add_a_comment.html">Add a comment</a>
+    </li>
+    
+    <li class="active">
+        <a href="category_fantasy.html">Fantasy</a>
+    </li>
+    
+    <li >
+        <a href="category_new_adult.html">New Adult</a>
+    </li>
+    
+    <li >
+        <a href="category_young_adult.html">Young Adult</a>
+    </li>
+    
+    <li >
+        <a href="category_science.html">Science</a>
+    </li>
+    
+    <li >
+        <a href="category_poetry.html">Poetry</a>
+    </li>
+    
+    <li >
+        <a href="category_paranormal.html">Paranormal</a>
+    </li>
+    
+    <li >
+        <a href="category_art.html">Art</a>
+    </li>
+    
+    <li >
+        <a href="category_psychology.html">Psychology</a>
+    </li>
+    
+    <li >
+        <a href="category_autobiography.html">Autobiography</a>
+    </li>
+    
+    <li >
+        <a href="category_parenting.html">Parenting</a>
+    </li>
+    
+    <li >
+        <a href="category_adult_fiction.html">Adult Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_humor.html">Humor</a>
+    </li>
+    
+    <li >
+        <a href="category_horror.html">Horror</a>
+    </li>
+    
+    <li >
+        <a href="category_history.html">History</a>
+    </li>
+    
+    <li >
+        <a href="category_food_and_drink.html">Food and Drink</a>
+    </li>
+    
+    <li >
+        <a href="category_christian_fiction.html">Christian Fiction</a>
+    </li>
+    
+    <li >
+        <a href="category_business.html">Business</a>
+    </li>
+    
+    <li >
+        <a href="category_biography.html">Biography</a>
+    </li>
+    
+    <li >
+        <a href="category_thriller.html">Thriller</a>
+    </li>
+    
+    <li >
+        <a href="category_contemporary.html">Contemporary</a>
+    </li>
+    
+    <li >
+        <a href="category_spirituality.html">Spirituality</a>
+    </li>
+    
+    <li >
+        <a href="category_academic.html">Academic</a>
+    </li>
+    
+    <li >
+        <a href="category_self_help.html">Self Help</a>
+    </li>
+    
+    <li >
+        <a href="category_historical.html">Historical</a>
+    </li>
+    
+    <li >
+        <a href="category_christian.html">Christian</a>
+    </li>
+    
+    <li >
+        <a href="category_suspense.html">Suspense</a>
+    </li>
+    
+    <li >
+        <a href="category_short_stories.html">Short Stories</a>
+    </li>
+    
+    <li >
+        <a href="category_novels.html">Novels</a>
+    </li>
+    
+    <li >
+        <a href="category_health.html">Health</a>
+    </li>
+    
+    <li >
+        <a href="category_politics.html">Politics</a>
+    </li>
+    
+    <li >
+        <a href="category_cultural.html">Cultural</a>
+    </li>
+    
+    <li >
+        <a href="category_erotica.html">Erotica</a>
+    </li>
+    
+    <li >
+        <a href="category_crime.html">Crime</a>
+    </li>
+    
+
+                        </ul>
+                    </li>
+                    <li><a href="/new-arrivals">New Arrivals</a></li>
+                    <li><a href="/bestsellers">Bestsellers</a></li>
+                    <li><a href="/special-offers">Special Offers</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+    <h2>Fantasy</h2>
+    <p>48 results</p>
+    
+    <div class="books-grid">
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_7ae099f3898e0209.html">
+                    <img src="images/Unicorn_Tracks.jpg" alt="Unicorn Tracks">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_7ae099f3898e0209.html">Unicorn Tracks</a></h3>
+                <p class="price">£18.78</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_c849f0b2f5d6a742.html">
+                    <img src="images/Saga__Volume_6__Saga__Collected_Editions___6_.jpg" alt="Saga, Volume 6 (Saga (Collected Editions) #6)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_c849f0b2f5d6a742.html">Saga, Volume 6 (Saga (Collected Editions) #6)</a></h3>
+                <p class="price">£25.02</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_0e691eda369f4e09.html">
+                    <img src="images/Princess_Between_Worlds__Wide-Awake_Princess__5_.jpg" alt="Princess Between Worlds (Wide-Awake Princess #5)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_0e691eda369f4e09.html">Princess Between Worlds (Wide-Awake Princess #5)</a></h3>
+                <p class="price">£13.34</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_fa9610a50a1bf149.html">
+                    <img src="images/Masks_and_Shadows.jpg" alt="Masks and Shadows">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_fa9610a50a1bf149.html">Masks and Shadows</a></h3>
+                <p class="price">£56.40</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_7267864328ae8b9d.html">
+                    <img src="images/Crown_of_Midnight__Throne_of_Glass__2_.jpg" alt="Crown of Midnight (Throne of Glass #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_7267864328ae8b9d.html">Crown of Midnight (Throne of Glass #2)</a></h3>
+                <p class="price">£43.29</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_6d5300b2d8f37e07.html">
+                    <img src="images/Avatar__The_Last_Airbender__Smoke_and_Shadow__Part_3__Smoke_and_Shadow__3_.jpg" alt="Avatar: The Last Airbender: Smoke and Shadow, Part 3 (Smoke and Shadow #3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_6d5300b2d8f37e07.html">Avatar: The Last Airbender: Smoke and Shadow, Part 3 (Smoke and Shadow #3)</a></h3>
+                <p class="price">£28.09</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_01d2001ac1e6f8a3.html">
+                    <img src="images/A_Court_of_Thorns_and_Roses__A_Court_of_Thorns_and_Roses__1_.jpg" alt="A Court of Thorns and Roses (A Court of Thorns and Roses #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_01d2001ac1e6f8a3.html">A Court of Thorns and Roses (A Court of Thorns and Roses #1)</a></h3>
+                <p class="price">£52.37</p>
+                <p class="availability">In stock (16 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_590a9cccf7db9f7d.html">
+                    <img src="images/Throne_of_Glass__Throne_of_Glass__1_.jpg" alt="Throne of Glass (Throne of Glass #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_590a9cccf7db9f7d.html">Throne of Glass (Throne of Glass #1)</a></h3>
+                <p class="price">£35.07</p>
+                <p class="availability">In stock (15 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_2dbb7ec08cdd7f3c.html">
+                    <img src="images/The_Glittering_Court__The_Glittering_Court__1_.jpg" alt="The Glittering Court (The Glittering Court #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_2dbb7ec08cdd7f3c.html">The Glittering Court (The Glittering Court #1)</a></h3>
+                <p class="price">£44.28</p>
+                <p class="availability">In stock (15 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_4ce91d31c1e57c33.html">
+                    <img src="images/Hollow_City__Miss_Peregrine_s_Peculiar_Children__2_.jpg" alt="Hollow City (Miss Peregrine’s Peculiar Children #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_4ce91d31c1e57c33.html">Hollow City (Miss Peregrine’s Peculiar Children #2)</a></h3>
+                <p class="price">£42.98</p>
+                <p class="availability">In stock (15 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_1528279aec1f3dce.html">
+                    <img src="images/The_Star-Touched_Queen.jpg" alt="The Star-Touched Queen">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_1528279aec1f3dce.html">The Star-Touched Queen</a></h3>
+                <p class="price">£46.02</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_992974ba6a0536ea.html">
+                    <img src="images/The_Hidden_Oracle__The_Trials_of_Apollo__1_.jpg" alt="The Hidden Oracle (The Trials of Apollo #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_992974ba6a0536ea.html">The Hidden Oracle (The Trials of Apollo #1)</a></h3>
+                <p class="price">£52.26</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_dc6f688b82e42a5b.html">
+                    <img src="images/The_Bane_Chronicles__The_Bane_Chronicles__1-11_.jpg" alt="The Bane Chronicles (The Bane Chronicles #1-11)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_dc6f688b82e42a5b.html">The Bane Chronicles (The Bane Chronicles #1-11)</a></h3>
+                <p class="price">£44.73</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_2b52334fab158861.html">
+                    <img src="images/Island_of_Dragons__Unwanteds__7_.jpg" alt="Island of Dragons (Unwanteds #7)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_2b52334fab158861.html">Island of Dragons (Unwanteds #7)</a></h3>
+                <p class="price">£29.65</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_3c6fe637a0180b01.html">
+                    <img src="images/Demigods___Magicians__Percy_and_Annabeth_Meet_the_Kanes__Percy_Jackson___Kane_Chronicles_Crossover__1-3_.jpg" alt="Demigods & Magicians: Percy and Annabeth Meet the Kanes (Percy Jackson & Kane Chronicles Crossover #1-3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_3c6fe637a0180b01.html">Demigods & Magicians: Percy and Annabeth Meet the Kanes (Percy Jackson & Kane Chronicles Crossover #1-3)</a></h3>
+                <p class="price">£37.51</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_966ebb738e0f9d9b.html">
+                    <img src="images/City_of_Glass__The_Mortal_Instruments__3_.jpg" alt="City of Glass (The Mortal Instruments #3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_966ebb738e0f9d9b.html">City of Glass (The Mortal Instruments #3)</a></h3>
+                <p class="price">£56.02</p>
+                <p class="availability">In stock (14 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_2f0213137a80d485.html">
+                    <img src="images/Searching_for_Meaning_in_Gailana.jpg" alt="Searching for Meaning in Gailana">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_2f0213137a80d485.html">Searching for Meaning in Gailana</a></h3>
+                <p class="price">£38.73</p>
+                <p class="availability">In stock (13 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_4a7a25be293ad678.html">
+                    <img src="images/The_Star-Touched_Queen.jpg" alt="The Star-Touched Queen">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_4a7a25be293ad678.html">The Star-Touched Queen</a></h3>
+                <p class="price">£32.30</p>
+                <p class="availability">In stock (12 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_63d5f1651880dcea.html">
+                    <img src="images/A_Shard_of_Ice__The_Black_Symphony_Saga__1_.jpg" alt="A Shard of Ice (The Black Symphony Saga #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_63d5f1651880dcea.html">A Shard of Ice (The Black Symphony Saga #1)</a></h3>
+                <p class="price">£56.63</p>
+                <p class="availability">In stock (9 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_4c82371b8cd02d4d.html">
+                    <img src="images/King_s_Folly__The_Kinsman_Chronicles__1_.jpg" alt="King's Folly (The Kinsman Chronicles #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_4c82371b8cd02d4d.html">King's Folly (The Kinsman Chronicles #1)</a></h3>
+                <p class="price">£39.61</p>
+                <p class="availability">In stock (7 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_4fa75fc6829431ca.html">
+                    <img src="images/Every_Heart_a_Doorway__Every_Heart_A_Doorway__1_.jpg" alt="Every Heart a Doorway (Every Heart A Doorway #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_4fa75fc6829431ca.html">Every Heart a Doorway (Every Heart A Doorway #1)</a></h3>
+                <p class="price">£12.16</p>
+                <p class="availability">In stock (7 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_d1378a0ad06ff979.html">
+                    <img src="images/A_Gathering_of_Shadows__Shades_of_Magic__2_.jpg" alt="A Gathering of Shadows (Shades of Magic #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_d1378a0ad06ff979.html">A Gathering of Shadows (Shades of Magic #2)</a></h3>
+                <p class="price">£44.81</p>
+                <p class="availability">In stock (7 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_e0b3a679b83caccc.html">
+                    <img src="images/The_Raven_Boys__The_Raven_Cycle__1_.jpg" alt="The Raven Boys (The Raven Cycle #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_e0b3a679b83caccc.html">The Raven Boys (The Raven Cycle #1)</a></h3>
+                <p class="price">£57.74</p>
+                <p class="availability">In stock (5 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_a2a9f76339d21ab1.html">
+                    <img src="images/The_False_Prince__The_Ascendance_Trilogy__1_.jpg" alt="The False Prince (The Ascendance Trilogy #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_a2a9f76339d21ab1.html">The False Prince (The Ascendance Trilogy #1)</a></h3>
+                <p class="price">£56.00</p>
+                <p class="availability">In stock (5 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_84126312e2431a09.html">
+                    <img src="images/Tell_the_Wind_and_Fire.jpg" alt="Tell the Wind and Fire">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_84126312e2431a09.html">Tell the Wind and Fire</a></h3>
+                <p class="price">£45.51</p>
+                <p class="availability">In stock (5 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_f2c8f4b4c94d5c5c.html">
+                    <img src="images/A_Feast_for_Crows__A_Song_of_Ice_and_Fire__4_.jpg" alt="A Feast for Crows (A Song of Ice and Fire #4)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_f2c8f4b4c94d5c5c.html">A Feast for Crows (A Song of Ice and Fire #4)</a></h3>
+                <p class="price">£17.21</p>
+                <p class="availability">In stock (5 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_ff2dffba388d9922.html">
+                    <img src="images/The_Demonists__Demonist__1_.jpg" alt="The Demonists (Demonist #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_ff2dffba388d9922.html">The Demonists (Demonist #1)</a></h3>
+                <p class="price">£52.11</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_8930013d06942df1.html">
+                    <img src="images/The_Beast__Black_Dagger_Brotherhood__14_.jpg" alt="The Beast (Black Dagger Brotherhood #14)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_8930013d06942df1.html">The Beast (Black Dagger Brotherhood #14)</a></h3>
+                <p class="price">£46.08</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_ae884ac655d6ee3e.html">
+                    <img src="images/Paper_and_Fire__The_Great_Library__2_.jpg" alt="Paper and Fire (The Great Library #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_ae884ac655d6ee3e.html">Paper and Fire (The Great Library #2)</a></h3>
+                <p class="price">£49.45</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_5a6b7155f2797537.html">
+                    <img src="images/Harry_Potter_and_the_Order_of_the_Phoenix__Harry_Potter__5_.jpg" alt="Harry Potter and the Order of the Phoenix (Harry Potter #5)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_5a6b7155f2797537.html">Harry Potter and the Order of the Phoenix (Harry Potter #5)</a></h3>
+                <p class="price">£31.63</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_73f4f87dd936ee5c.html">
+                    <img src="images/Harry_Potter_and_the_Half-Blood_Prince__Harry_Potter__6_.jpg" alt="Harry Potter and the Half-Blood Prince (Harry Potter #6)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_73f4f87dd936ee5c.html">Harry Potter and the Half-Blood Prince (Harry Potter #6)</a></h3>
+                <p class="price">£48.75</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-5"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_c7c4f55b7321cba7.html">
+                    <img src="images/Harry_Potter_and_the_Chamber_of_Secrets__Harry_Potter__2_.jpg" alt="Harry Potter and the Chamber of Secrets (Harry Potter #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_c7c4f55b7321cba7.html">Harry Potter and the Chamber of Secrets (Harry Potter #2)</a></h3>
+                <p class="price">£14.74</p>
+                <p class="availability">In stock (4 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_322a9e34d87f54b1.html">
+                    <img src="images/The_Rose___the_Dagger__The_Wrath_and_the_Dawn__2_.jpg" alt="The Rose & the Dagger (The Wrath and the Dawn #2)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_322a9e34d87f54b1.html">The Rose & the Dagger (The Wrath and the Dawn #2)</a></h3>
+                <p class="price">£58.64</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_feaaae90514eb2ac.html">
+                    <img src="images/Soldier__Talon__3_.jpg" alt="Soldier (Talon #3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_feaaae90514eb2ac.html">Soldier (Talon #3)</a></h3>
+                <p class="price">£24.72</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_e9056f9b5a40a301.html">
+                    <img src="images/Midnight_Riot__Peter_Grant__Rivers_of_London_-_books__1_.jpg" alt="Midnight Riot (Peter Grant/ Rivers of London - books #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_e9056f9b5a40a301.html">Midnight Riot (Peter Grant/ Rivers of London - books #1)</a></h3>
+                <p class="price">£55.46</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_b003f8bb02f76dc5.html">
+                    <img src="images/Heir_to_the_Sky.jpg" alt="Heir to the Sky">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_b003f8bb02f76dc5.html">Heir to the Sky</a></h3>
+                <p class="price">£44.07</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_b843f52a986a2914.html">
+                    <img src="images/Eragon__The_Inheritance_Cycle__1_.jpg" alt="Eragon (The Inheritance Cycle #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_b843f52a986a2914.html">Eragon (The Inheritance Cycle #1)</a></h3>
+                <p class="price">£43.87</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_468bd274ac084bb9.html">
+                    <img src="images/Darkfever__Fever__1_.jpg" alt="Darkfever (Fever #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_468bd274ac084bb9.html">Darkfever (Fever #1)</a></h3>
+                <p class="price">£56.02</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_5d22e2a46604b6e7.html">
+                    <img src="images/Ash.jpg" alt="Ash">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_5d22e2a46604b6e7.html">Ash</a></h3>
+                <p class="price">£22.06</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_87beabf664115d79.html">
+                    <img src="images/A_Storm_of_Swords__A_Song_of_Ice_and_Fire__3_.jpg" alt="A Storm of Swords (A Song of Ice and Fire #3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_87beabf664115d79.html">A Storm of Swords (A Song of Ice and Fire #3)</a></h3>
+                <p class="price">£31.22</p>
+                <p class="availability">In stock (3 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_dab5e75d1339706a.html">
+                    <img src="images/Vampire_Girl__Vampire_Girl__1_.jpg" alt="Vampire Girl (Vampire Girl #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_dab5e75d1339706a.html">Vampire Girl (Vampire Girl #1)</a></h3>
+                <p class="price">£53.82</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_9e9932ae1a7d0943.html">
+                    <img src="images/The_Silent_Twin__Detective_Jennifer_Knight__3_.jpg" alt="The Silent Twin (Detective Jennifer Knight #3)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_9e9932ae1a7d0943.html">The Silent Twin (Detective Jennifer Knight #3)</a></h3>
+                <p class="price">£36.25</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_c40b70e0f6d80189.html">
+                    <img src="images/The_Mirror___the_Maze__The_Wrath_and_the_Dawn__1_5_.jpg" alt="The Mirror & the Maze (The Wrath and the Dawn #1.5)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_c40b70e0f6d80189.html">The Mirror & the Maze (The Wrath and the Dawn #1.5)</a></h3>
+                <p class="price">£29.38</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_3a9a7c5895e82646.html">
+                    <img src="images/Sister_Sable__The_Mad_Queen__1_.jpg" alt="Sister Sable (The Mad Queen #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_3a9a7c5895e82646.html">Sister Sable (The Mad Queen #1)</a></h3>
+                <p class="price">£13.33</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-3"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_229cd6564bf0dce4.html">
+                    <img src="images/Shadow_Rites__Jane_Yellowrock__10_.jpg" alt="Shadow Rites (Jane Yellowrock #10)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_229cd6564bf0dce4.html">Shadow Rites (Jane Yellowrock #10)</a></h3>
+                <p class="price">£21.72</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_8932e5c12f12ffed.html">
+                    <img src="images/Origins__Alphas_0_5_.jpg" alt="Origins (Alphas 0.5)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_8932e5c12f12ffed.html">Origins (Alphas 0.5)</a></h3>
+                <p class="price">£28.99</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-1"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_7ea31f38675b91c1.html">
+                    <img src="images/One_Second__Seven__7_.jpg" alt="One Second (Seven #7)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_7ea31f38675b91c1.html">One Second (Seven #7)</a></h3>
+                <p class="price">£52.94</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-2"></div>
+            </div>
+        </div>
+        
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_63e20a0f98218a87.html">
+                    <img src="images/Myriad__Prentor__1_.jpg" alt="Myriad (Prentor #1)">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_63e20a0f98218a87.html">Myriad (Prentor #1)</a></h3>
+                <p class="price">£58.75</p>
+                <p class="availability">In stock (1 available)</p>
+                <div class="rating rating-4"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Jaggi Books</h3>
+                    <p>Your one-stop destination for quality books at affordable prices.</p>
+                </div>
+                <!-- Update the footer links as well -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Jaggi Books. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="/static/js/cart.js"></script>
+    
+</body>
+</html>

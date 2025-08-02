@@ -13,41 +13,41 @@ def load_data():
     
     return categories, books
 
-# Create output directory
+# Create docs directory instead of output
 def create_output_dir():
-    os.makedirs('output', exist_ok=True)
-    os.makedirs('output/images', exist_ok=True)
-    os.makedirs('output/static/css', exist_ok=True)
-    os.makedirs('output/static/js', exist_ok=True)
+    os.makedirs('docs', exist_ok=True)
+    os.makedirs('docs/images', exist_ok=True)
+    os.makedirs('docs/static/css', exist_ok=True)
+    os.makedirs('docs/static/js', exist_ok=True)
 
-# Copy static files
+# Update copy_static_files to use docs/
 def copy_static_files():
     # Copy CSS
-    shutil.copy('static/css/styles.css', 'output/static/css/')
+    shutil.copy('static/css/styles.css', 'docs/static/css/')
     
     # Copy JavaScript
     if os.path.exists('static/js/cart.js'):
-        shutil.copy('static/js/cart.js', 'output/static/js/')
+        shutil.copy('static/js/cart.js', 'docs/static/js/')
     
     # Copy images
     for filename in os.listdir('images'):
-        shutil.copy(f'images/{filename}', f'output/images/')
+        shutil.copy(f'images/{filename}', f'docs/images/')
 
-# Generate HTML files
+# Update generate_html_files to use docs/
 def generate_html_files(categories, books):
     # Set up Jinja environment
     env = Environment(loader=FileSystemLoader('templates'))
     
     # Generate index page
     template = env.get_template('index.html')
-    with open('output/index.html', 'w', encoding='utf-8') as f:
+    with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(template.render(categories=categories, books=books))
     
     # Generate category pages
     template = env.get_template('category.html')
     for category in categories:
         category_books = [book for book in books if book['category_slug'] == category['slug']]
-        with open(f'output/category_{category["slug"]}.html', 'w', encoding='utf-8') as f:
+        with open(f'docs/category_{category["slug"]}.html', 'w', encoding='utf-8') as f:
             f.write(template.render(
                 categories=categories,
                 category=category,
@@ -57,12 +57,12 @@ def generate_html_files(categories, books):
     # Generate book detail pages
     template = env.get_template('book.html')
     for book in books:
-        with open(f'output/book_{book["upc"]}.html', 'w', encoding='utf-8') as f:
+        with open(f'docs/book_{book["upc"]}.html', 'w', encoding='utf-8') as f:
             f.write(template.render(categories=categories, book=book))
     
     # Generate cart page
     template = env.get_template('cart.html')
-    with open('output/cart.html', 'w', encoding='utf-8') as f:
+    with open('docs/cart.html', 'w', encoding='utf-8') as f:
         f.write(template.render(categories=categories))
     
     # Generate pagination pages
@@ -75,7 +75,7 @@ def generate_html_files(categories, books):
         end_idx = start_idx + books_per_page
         page_books = books[start_idx:end_idx]
         
-        with open(f'output/page_{page}.html', 'w', encoding='utf-8') as f:
+        with open(f'docs/page_{page}.html', 'w', encoding='utf-8') as f:
             f.write(template.render(
                 categories=categories,
                 books=page_books,
