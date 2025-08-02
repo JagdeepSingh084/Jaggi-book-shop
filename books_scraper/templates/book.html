@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.title }} | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li {% if category.name == book.category %}class="active"{% endif %}>
+        <a href="/category/{{ category.slug }}">{{ category.name }}</a>
+    </li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="book-detail">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="book-image">
+                    <img src="/images/{{ book.image_filename }}" alt="{{ book.title }}">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="book-info">
+                    <h2>{{ book.title }}</h2>
+                    <p class="price">{{ book.price }}</p>
+                    <p class="availability">{{ book.availability }}</p>
+                    <div class="rating rating-{{ book.rating }}"></div>
+                    
+                    <div class="book-actions">
+                        <button class="btn btn-primary add-to-cart" data-upc="{{ book.upc }}">Add to Cart</button>
+                    </div>
+                    
+                    <div class="product-description">
+                        <h3>Product Description</h3>
+                        <p>{{ book.description }}</p>
+                    </div>
+                    
+                    <div class="product-info">
+                        <h3>Product Information</h3>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>UPC</th>
+                                    <td>{{ book.upc }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Product Type</th>
+                                    <td>{{ book.product_type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Price (excl. tax)</th>
+                                    <td>{{ book.price_excl_tax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Price (incl. tax)</th>
+                                    <td>{{ book.price_incl_tax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax</th>
+                                    <td>{{ book.tax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Availability</th>
+                                    <td>{{ book.availability }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Number of reviews</th>
+                                    <td>{{ book.number_of_reviews }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

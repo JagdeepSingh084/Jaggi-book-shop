@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Special Offers | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Special Offers</h1>
+        <p>Limited-time deals and discounts on selected books.</p>
+    </div>
+    
+    <div class="special-offers-container">
+        <div class="offer-banner">
+            <h2>Summer Reading Sale</h2>
+            <p>Get 20% off on selected titles until August 31st!</p>
+        </div>
+        
+        <div class="books-grid">
+            {% for book in special_offers %}
+            <div class="book-item special-offer">
+                <div class="discount-badge">-20%</div>
+                <div class="book-image">
+                    <a href="/book/{{ book.upc }}">
+                        <img src="/images/{{ book.image_filename }}" alt="{{ book.title }}">
+                    </a>
+                </div>
+                <div class="book-info">
+                    <h3><a href="/book/{{ book.upc }}">{{ book.title }}</a></h3>
+                    <p class="original-price">{{ book.original_price }}</p>
+                    <p class="price">{{ book.price }}</p>
+                    <p class="availability">{{ book.availability }}</p>
+                    <div class="rating rating-{{ book.rating }}"></div>
+                    <div class="book-actions">
+                        <button class="btn btn-primary add-to-cart" data-upc="{{ book.upc }}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

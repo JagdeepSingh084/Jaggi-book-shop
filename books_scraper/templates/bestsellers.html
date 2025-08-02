@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Bestsellers | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Bestsellers</h1>
+        <p>Our most popular books that readers can't get enough of.</p>
+    </div>
+    
+    <div class="books-grid">
+        {% for book in bestsellers %}
+        <div class="book-item">
+            <div class="book-image">
+                <a href="/book/{{ book.upc }}">
+                    <img src="/images/{{ book.image_filename }}" alt="{{ book.title }}">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="/book/{{ book.upc }}">{{ book.title }}</a></h3>
+                <p class="price">{{ book.price }}</p>
+                <p class="availability">{{ book.availability }}</p>
+                <div class="rating rating-{{ book.rating }}"></div>
+                <div class="book-actions">
+                    <button class="btn btn-primary add-to-cart" data-upc="{{ book.upc }}">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

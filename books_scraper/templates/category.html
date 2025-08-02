@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category.name }} | Books to Scrape Clone{% endblock %}
+
+{% block categories %}
+    {% for cat in categories %}
+    <li {% if cat.slug == category.slug %}class="active"{% endif %}>
+        <a href="category_{{ cat.slug }}.html">{{ cat.name }}</a>
+    </li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ category.name }}</h2>
+    <p>{{ category_books|length }} results</p>
+    
+    <div class="books-grid">
+        {% for book in category_books %}
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_{{ book.upc }}.html">
+                    <img src="images/{{ book.image_filename }}" alt="{{ book.title }}">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_{{ book.upc }}.html">{{ book.title }}</a></h3>
+                <p class="price">{{ book.price }}</p>
+                <p class="availability">{{ book.availability }}</p>
+                <div class="rating rating-{{ book.rating }}"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

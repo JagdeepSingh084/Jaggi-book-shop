@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}New Arrivals | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>New Arrivals</h1>
+        <p>Discover our latest additions to the Jaggi Books collection.</p>
+    </div>
+    
+    <div class="books-grid">
+        {% for book in new_arrivals %}
+        <div class="book-item">
+            <div class="book-image">
+                <a href="/book/{{ book.upc }}">
+                    <img src="/images/{{ book.image_filename }}" alt="{{ book.title }}">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="/book/{{ book.upc }}">{{ book.title }}</a></h3>
+                <p class="price">{{ book.price }}</p>
+                <p class="availability">{{ book.availability }}</p>
+                <div class="rating rating-{{ book.rating }}"></div>
+                <div class="book-actions">
+                    <button class="btn btn-primary add-to-cart" data-upc="{{ book.upc }}">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

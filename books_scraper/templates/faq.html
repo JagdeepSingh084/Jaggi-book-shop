@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about Jaggi Books.</p>
+    </div>
+    
+    <div class="faq-container">
+        <div class="faq-search">
+            <input type="text" id="faqSearch" placeholder="Search FAQs...">
+        </div>
+        
+        <div class="faq-categories">
+            <button class="faq-category active" data-category="all">All</button>
+            <button class="faq-category" data-category="orders">Orders</button>
+            <button class="faq-category" data-category="shipping">Shipping</button>
+            <button class="faq-category" data-category="returns">Returns</button>
+            <button class="faq-category" data-category="account">Account</button>
+            <button class="faq-category" data-category="payment">Payment</button>
+        </div>
+        
+        <div class="faq-list">
+            <!-- Orders -->
+            <div class="faq-item" data-category="orders">
+                <div class="faq-question">
+                    <h3>How do I place an order?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>To place an order, browse our collection and add items to your cart. When you're ready to checkout, click on the cart icon, review your items, and proceed to checkout. Follow the prompts to enter your shipping and payment information.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="orders">
+                <div class="faq-question">
+                    <h3>Can I modify or cancel my order?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can modify or cancel your order within 1 hour of placing it. Please contact our customer service team immediately at orders@jaggibooks.com or call (123) 456-7891.</p>
+                </div>
+            </div>
+            
+            <!-- Shipping -->
+            <div class="faq-item" data-category="shipping">
+                <div class="faq-question">
+                    <h3>How long will it take to receive my order?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard shipping typically takes 3-5 business days. Express shipping is available for 1-2 business days delivery. International shipping may take 7-14 business days depending on the destination.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="shipping">
+                <div class="faq-question">
+                    <h3>Do you ship internationally?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we ship to most countries worldwide. International shipping rates and delivery times vary by location. Please note that additional customs fees may apply depending on your country's regulations.</p>
+                </div>
+            </div>
+            
+            <!-- Returns -->
+            <div class="faq-item" data-category="returns">
+                <div class="faq-question">
+                    <h3>What is your return policy?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept returns within 30 days of delivery. Books must be in their original condition with no damage. Please email returns@jaggibooks.com to initiate a return.</p>
+                </div>
+            </div>
+            
+            <!-- Account -->
+            <div class="faq-item" data-category="account">
+                <div class="faq-question">
+                    <h3>How do I create an account?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Click on the "Sign Up" button in the top right corner of our website. Fill in your details and create a password. You'll receive a confirmation email to verify your account.</p>
+                </div>
+            </div>
+            
+            <!-- Payment -->
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and Apple Pay. We also offer gift cards that can be used as payment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-question');
+        
+        faqItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.toggle-icon i');
+                
+                // Toggle answer visibility
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+        
+        // FAQ category filter
+        const categoryButtons = document.querySelectorAll('.faq-category');
+        const allFaqItems = document.querySelectorAll('.faq-item');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter FAQ items
+                allFaqItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // FAQ search functionality
+        const searchInput = document.getElementById('faqSearch');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            allFaqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

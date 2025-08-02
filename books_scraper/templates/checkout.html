@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout | Jaggi Books{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Checkout</h1>
+    </div>
+    
+    <div class="checkout-container">
+        <div class="checkout-steps">
+            <div class="step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-name">Shopping Cart</span>
+            </div>
+            <div class="step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-name">Shipping</span>
+            </div>
+            <div class="step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-name">Payment</span>
+            </div>
+            <div class="step" data-step="4">
+                <span class="step-number">4</span>
+                <span class="step-name">Confirmation</span>
+            </div>
+        </div>
+        
+        <div class="checkout-content">
+            <!-- Step 1: Cart Review -->
+            <div class="checkout-step-content" id="step-1">
+                <h2>Review Your Cart</h2>
+                
+                <div id="checkout-cart-items" class="checkout-cart-items">
+                    <!-- Cart items will be loaded here via JavaScript -->
+                </div>
+                
+                <div class="checkout-actions">
+                    <a href="/cart" class="btn btn-secondary">Back to Cart</a>
+                    <button class="btn btn-primary next-step" data-next="2">Proceed to Shipping</button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Shipping Information -->
+            <div class="checkout-step-content" id="step-2" style="display: none;">
+                <h2>Shipping Information</h2>
+                
+                <form id="shipping-form" class="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State/Province</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zip">Zip/Postal Code</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="AU">Australia</option>
+                                <!-- Add more countries as needed -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="shipping-method">Shipping Method</label>
+                        <div class="shipping-options">
+                            <div class="shipping-option">
+                                <input type="radio" id="standard" name="shipping-method" value="standard" checked>
+                                <label for="standard">
+                                    <span class="shipping-name">Standard Shipping</span>
+                                    <span class="shipping-price">£4.99</span>
+                                    <span class="shipping-time">3-5 business days</span>
+                                </label>
+                            </div>
+                            <div class="shipping-option">
+                                <input type="radio" id="express" name="shipping-method" value="express">
+                                <label for="express">
+                                    <span class="shipping-name">Express Shipping</span>
+                                    <span class="shipping-price">£9.99</span>
+                                    <span class="shipping-time">1-2 business days</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="checkout-actions">
+                    <button class="btn btn-secondary prev-step" data-prev="1">Back to Cart</button>
+                    <button class="btn btn-primary next-step" data-next="3">Proceed to Payment</button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Payment Information -->
+            <div class="checkout-step-content" id="step-3" style="display: none;">
+                <h2>Payment Information</h2>
+                
+                <form id="payment-form" class="checkout-form">
+                    <div class="form-group">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" name="card-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="payment-subtotal">£0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="payment-shipping">£4.99</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="payment-tax">£0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="payment-total">£0.00</span>
+                    </div>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button class="btn btn-secondary prev-step" data-prev="2">Back to Shipping</button>
+                    <button class="btn btn-primary next-step" data-next="4">Place Order</button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Order Confirmation -->
+            <div class="checkout-step-content" id="step-4" style="display: none;">
+                <div class="order-confirmation">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Thank You for Your Order!</h2>
+                    <p>Your order has been placed successfully.</p>
+                    <p>Order Number: <span id="order-number">JB-12345</span></p>
+                    <p>A confirmation email has been sent to your email address.</p>
+                    
+                    <div class="order-details">
+                        <h3>Order Details</h3>
+                        <div id="confirmation-items">
+                            <!-- Order items will be displayed here -->
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="confirmation-subtotal">£0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="confirmation-shipping">£4.99</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax:</span>
+                                <span id="confirmation-tax">£0.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="confirmation-total">£0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <a href="/" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load cart items
+        loadCheckoutCart();
+        
+        // Step navigation
+        const nextButtons = document.querySelectorAll('.next-step');
+        const prevButtons = document.querySelectorAll('.prev-step');
+        const steps = document.querySelectorAll('.step');
+        
+        nextButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const nextStep = this.dataset.next;
+                goToStep(nextStep);
+                
+                // If this is the "Place Order" button
+                if (nextStep === '4') {
+                    // Generate a random order number
+                    const orderNumber = 'JB-' + Math.floor(100000 + Math.random() * 900000);
+                    document.getElementById('order-number').textContent = orderNumber;
+                    
+                    // Copy order details to confirmation
+                    const subtotal = document.getElementById('payment-subtotal').textContent;
+                    const shipping = document.getElementById('payment-shipping').textContent;
+                    const tax = document.getElementById('payment-tax').textContent;
+                    const total = document.getElementById('payment-total').textContent;
+                    
+                    document.getElementById('confirmation-subtotal').textContent = subtotal;
+                    document.getElementById('confirmation-shipping').textContent = shipping;
+                    document.getElementById('confirmation-tax').textContent = tax;
+                    document.getElementById('confirmation-total').textContent = total;
+                    
+                    // Display order items in confirmation
+                    displayConfirmationItems();
+                    
+                    // Clear the cart
+                    fetch('/api/cart/clear', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(() => {
+                        // Update cart count
+                        document.getElementById('cart-count').textContent = '0';
+                    })
+                    .catch(error => console.error('Error clearing cart:', error));
+                }
+            });
+        });
+        
+        prevButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const prevStep = this.dataset.prev;
+                goToStep(prevStep);
+            });
+        });
+        
+        function goToStep(stepNumber) {
+            // Hide all step content
+            document.querySelectorAll('.checkout-step-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Show the selected step content
+            document.getElementById(`step-${stepNumber}`).style.display = 'block';
+            
+            // Update step indicators
+            steps.forEach(step => {
+                if (parseInt(step.dataset.step) <= parseInt(stepNumber)) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+        
+        // Shipping method selection
+        const shippingOptions = document.querySelectorAll('input[name="shipping-method"]');
+        shippingOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                const shippingPrice = this.value === 'standard' ? '£4.99' : '£9.99';
+                document.getElementById('payment-shipping').textContent = shippingPrice;
+                updateTotal();
+            });
+        });
+        
+        function loadCheckoutCart() {
+            fetch('/api/cart')
+                .then(response => response.json())
+                .then(cart => {
+                    displayCheckoutCart(cart);
+                })
+                .catch(error => console.error('Error loading cart:', error));
+        }
+        
+        function displayCheckoutCart(cart) {
+            const cartItemsEl = document.getElementById('checkout-cart-items');
+            let subtotal = 0;
+            
+            // Clear previous items
+            cartItemsEl.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p>Your cart is empty.</p>';
+                document.querySelector('.next-step[data-next="2"]').disabled = true;
+                return;
+            }
+            
+            // Enable next button
+            document.querySelector('.next-step[data-next="2"]').disabled = false;
+            
+            // Add cart items
+            cart.forEach(item => {
+                const price = parseFloat(item.price.replace('£', ''));
+                const itemTotal = price * item.quantity;
+                subtotal += itemTotal;
+                
+                const itemEl = document.createElement('div');
+                itemEl.className = 'checkout-item';
+                itemEl.innerHTML = `
+                    <div class="item-image">
+                        <img src="/images/${item.image_filename}" alt="${item.title}">
+                    </div>
+                    <div class="item-details">
+                        <h4>${item.title}</h4>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Price: ${item.price}</p>
+                    </div>
+                    <div class="item-total">
+                        £${itemTotal.toFixed(2)}
+                    </div>
+                `;
+                
+                cartItemsEl.appendChild(itemEl);
+            });
+            
+            // Update payment summary
+            document.getElementById('payment-subtotal').textContent = `£${subtotal.toFixed(2)}`;
+            
+            // Calculate tax (assuming 20% VAT)
+            const tax = subtotal * 0.2;
+            document.getElementById('payment-tax').textContent = `£${tax.toFixed(2)}`;
+            
+            updateTotal();
+        }
+        
+        function updateTotal() {
+            const subtotal = parseFloat(document.getElementById('payment-subtotal').textContent.replace('£', ''));
+            const shipping = parseFloat(document.getElementById('payment-shipping').textContent.replace('£', ''));
+            const tax = parseFloat(document.getElementById('payment-tax').textContent.replace('£', ''));
+            
+            const total = subtotal + shipping + tax;
+            document.getElementById('payment-total').textContent = `£${total.toFixed(2)}`;
+        }
+        
+        function displayConfirmationItems() {
+            const checkoutItems = document.getElementById('checkout-cart-items').innerHTML;
+            document.getElementById('confirmation-items').innerHTML = checkoutItems;
+        }
+    });
+</script>
+{% endblock %}

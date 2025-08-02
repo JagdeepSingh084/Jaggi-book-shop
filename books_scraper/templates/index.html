@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Books to Scrape Clone - Home{% endblock %}
+
+{% block categories %}
+    {% for category in categories %}
+    <li><a href="category_{{ category.slug }}.html">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <h2>All Books</h2>
+    <p>{{ books|length }} results</p>
+    
+    <div class="books-grid">
+        {% for book in books[:20] %}
+        <div class="book-item">
+            <div class="book-image">
+                <a href="book_{{ book.upc }}.html">
+                    <img src="images/{{ book.image_filename }}" alt="{{ book.title }}">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3><a href="book_{{ book.upc }}.html">{{ book.title }}</a></h3>
+                <p class="price">{{ book.price }}</p>
+                <p class="availability">{{ book.availability }}</p>
+                <div class="rating rating-{{ book.rating }}"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="pagination">
+        <span class="current">Page 1 of {{ (books|length / 20)|round(0, 'ceil')|int }}</span>
+        <a href="page_2.html" class="next">next</a>
+    </div>
+{% endblock %}
