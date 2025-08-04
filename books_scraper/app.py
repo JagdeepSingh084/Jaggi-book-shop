@@ -50,28 +50,41 @@ def add_to_cart():
     upc = data.get('upc')
     quantity = int(data.get('quantity', 1))
     
+    # Load all books data
+    _, all_books = load_data()
+    
     # Ensure book data exists
     book = next((b for b in all_books if b['upc'] == upc), None)
     if not book:
         return jsonify({'success': False, 'error': 'Book not found'}), 404
     
-    # Initialize cart if not exists
+    # Initialize cart as list if not exists
     if 'cart' not in session:
-        session['cart'] = {}
+        session['cart'] = []
     
-    # Append or update quantity if item exists
-    if upc in session['cart']:
-        session['cart'][upc]['quantity'] += quantity
+    # Find if item already exists in cart
+    cart_item = next((item for item in session['cart'] if item['upc'] == upc), None)
+    
+    if cart_item:
+        cart_item['quantity'] += quantity
     else:
-        session['cart'][upc] = {
+        session['cart'].append({
+            'upc': upc,
             'title': book['title'],
             'price': float(book['price']),
             'quantity': quantity,
             'image': book['image']
-        }
+        })
     
     session.modified = True
-    return jsonify({'success': True, 'cart': session['cart']})
+    cart_count = sum(item['quantity'] for item in session['cart'])
+    
+    return jsonify({
+        'success': True,
+        'message': f'"{book["title"]}" added to cart',
+        'cart': session['cart'],
+        'cart_count': cart_count
+    })
 
 @app.route('/api/cart/remove', methods=['POST'])
 def remove_from_cart():

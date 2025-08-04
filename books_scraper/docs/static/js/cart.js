@@ -3,37 +3,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load cart count
     updateCartCount();
     
-    // Add to cart buttons
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    if (addToCartButtons) {
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const upc = this.dataset.upc;
-                addToCart(upc);
-            });
-        });
-    }
+    // Add to cart buttons - use event delegation for better performance
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-cart')) {
+            e.preventDefault();
+            const upc = e.target.dataset.upc;
+            addToCart(upc);
+        }
+    });
 });
 
 function updateCartCount() {
     fetch('/api/cart')
         .then(response => response.json())
         .then(cart => {
-            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-            document.getElementById('cart-count').textContent = cartCount;
+            const cartCount = Array.isArray(cart) ? 
+                cart.reduce((total, item) => total + item.quantity, 0) : 
+                Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+            
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.textContent = cartCount;
+            });
         })
         .catch(error => console.error('Error updating cart count:', error));
 }
 
 function addToCart(upc) {
+    const button = document.querySelector(`.add-to-cart[data-upc="${upc}"]`);
+    if (button) button.disabled = true; // Prevent double clicks
+
     fetch('/api/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            upc: upc  // Ensure this matches server expectation
+            upc: upc,
+            quantity: 1
         })
     })
     .then(response => {
@@ -44,20 +50,24 @@ function addToCart(upc) {
     })
     .then(data => {
         if (data.success) {
-            // Force DOM update for cart counter
+            // Update cart count
             document.querySelectorAll('.cart-count').forEach(el => {
                 el.textContent = data.cart_count;
             });
-            showTempMessage(data.message);
+            // Show success message
+            showAddedToCartMessage(data.message);
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        showTempMessage('Failed to add item to cart');
+        showAddedToCartMessage('Failed to add item to cart');
+    })
+    .finally(() => {
+        if (button) button.disabled = false; // Re-enable the button
     });
 }
 
-function showAddedToCartMessage() {
+function showAddedToCartMessage(message) {
     // Create message element if it doesn't exist
     let messageEl = document.getElementById('cart-message');
     if (!messageEl) {
@@ -68,7 +78,7 @@ function showAddedToCartMessage() {
     }
     
     // Show message
-    messageEl.textContent = 'Added to cart!';
+    messageEl.textContent = message || 'Added to cart!';
     messageEl.classList.add('show');
     
     // Hide message after 3 seconds

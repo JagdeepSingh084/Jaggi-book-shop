@@ -25,6 +25,9 @@
                 <p class="price">{{ book.price }}</p>
                 <p class="availability">{{ book.availability }}</p>
                 <div class="rating rating-{{ book.rating }}"></div>
+                <div class="book-actions">
+                    <button class="btn btn-primary add-to-cart" data-upc="{{ book.upc }}">Add to Cart</button>
+                </div>
             </div>
         </div>
         {% endfor %}
